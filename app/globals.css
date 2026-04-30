@@ -60,3 +60,31 @@ body {
   font-weight: 400;
   margin: 0;
 }
+
+@keyframes footer-logo-float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-4px) rotate(1deg);
+  }
+}
+
+@layer utilities {
+  .animated-text {
+    background: radial-gradient(
+      circle at var(--text-mouse-x, 50%) var(--text-mouse-y, 50%),
+      var(--gradient-text-center, #ffd900) 0%,
+      var(--gradient-text-edge, #fa520f) 40%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .footer-logo-float {
+    animation: footer-logo-float 3.5s ease-in-out infinite;
+  }
+}

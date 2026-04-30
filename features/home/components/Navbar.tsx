@@ -16,6 +16,7 @@ interface NavbarProps {
 export function Navbar({ dictionary, language, onLanguageChange }: NavbarProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const isActiveRoute = (href: string) => (href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(`${href}/`));
 
   return (
     <header className="border-b border-black/10 bg-[#fff0c2]/70 backdrop-blur">
@@ -31,7 +32,7 @@ export function Navbar({ dictionary, language, onLanguageChange }: NavbarProps) 
                 <Link
                   href={item.href}
                   className={`text-sm uppercase tracking-wide transition-colors ${
-                    pathname === item.href ? "text-accent" : "hover:text-accent"
+                    isActiveRoute(item.href) ? "text-accent" : "hover:text-accent"
                   }`}
                 >
                   {item.label}
@@ -80,7 +81,7 @@ export function Navbar({ dictionary, language, onLanguageChange }: NavbarProps) 
                     <Link
                       href={item.href}
                       className={`block text-sm uppercase tracking-wide transition-colors ${
-                        pathname === item.href ? "text-accent" : "hover:text-accent"
+                      isActiveRoute(item.href) ? "text-accent" : "hover:text-accent"
                       }`}
                       onClick={() => setIsMobileMenuOpen(false)}
                     >

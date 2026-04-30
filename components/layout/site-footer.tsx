@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import type { CSSProperties } from "react";
 import Link from "next/link";
 
 const FOOTER_LINKS = [
@@ -44,6 +45,17 @@ export function SiteFooter() {
     [mouse, scrollProgress],
   );
 
+  const textVars = useMemo(
+    () =>
+      ({
+        "--text-mouse-x": `${mouse.x}%`,
+        "--text-mouse-y": `${mouse.y}%`,
+        "--gradient-text-center": "#ffd900",
+        "--gradient-text-edge": "#fa520f",
+      }) as CSSProperties,
+    [mouse],
+  );
+
   return (
     <footer
       ref={footerRef}
@@ -63,12 +75,12 @@ export function SiteFooter() {
       />
       <div className="pointer-events-none absolute -left-10 bottom-0 h-40 w-40 rounded-full bg-[#ffd900]/10 blur-3xl" />
 
-      <div className="relative mx-auto w-full max-w-6xl px-6 py-12 text-white">
+      <div className="relative mx-auto w-full max-w-6xl px-6 py-12 text-white" style={textVars}>
         <div className="grid gap-10 md:grid-cols-[1.2fr_1fr_1fr] md:items-start">
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <span className="inline-flex h-8 w-8 bg-gradient-to-b from-[#ffd900] via-[#ffa110] to-[#fa520f]" />
-              <p className="text-2xl tracking-[-0.03em]">AgroMistral</p>
+              <span className="footer-logo-float inline-flex h-8 w-8 bg-gradient-to-b from-[#ffd900] via-[#ffa110] to-[#fa520f]" />
+              <p className="animated-text text-2xl tracking-[-0.03em]">AgroMistral</p>
             </div>
             <p className="max-w-sm text-sm leading-relaxed text-white/75">
               Modern agriculture solutions with warm, practical intelligence for farms and agri-businesses.
@@ -82,7 +94,7 @@ export function SiteFooter() {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="text-sm uppercase tracking-wide text-white/85 transition-colors duration-300 hover:text-[#ffd06a]"
+                  className="text-sm uppercase tracking-wide text-white/85 transition-all duration-300 hover:translate-x-1 hover:text-[#ffd06a]"
                 >
                   {item.label}
                 </Link>
