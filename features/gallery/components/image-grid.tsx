@@ -53,13 +53,16 @@ export function ImageGrid({ images }: ImageGridProps) {
               alt={image.title} 
               className="h-full w-full object-cover transition-all duration-1000 group-hover:scale-110 group-hover:opacity-60" 
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-dark)]/90 via-[var(--color-dark)]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8 z-20">
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6 md:p-8 z-20">
               <span className="font-body text-xs uppercase tracking-[0.2em] text-[var(--color-lime)] mb-2 translate-y-8 group-hover:translate-y-0 transition-transform duration-500 ease-out text-left">
                 View Project
               </span>
-              <DialogTitle className="font-display text-3xl md:text-4xl text-[var(--color-surface)] translate-y-8 group-hover:translate-y-0 transition-transform duration-500 delay-75 ease-out text-left">
+              <DialogTitle className="font-display text-3xl md:text-4xl text-white translate-y-8 group-hover:translate-y-0 transition-transform duration-500 delay-75 ease-out text-left drop-shadow-sm">
                 {image.title}
               </DialogTitle>
+              <p className="font-body text-sm text-white/80 mt-3 translate-y-8 group-hover:translate-y-0 transition-transform duration-500 delay-100 ease-out text-left line-clamp-2 leading-relaxed">
+                {image.description}
+              </p>
             </div>
             <button className='absolute bottom-6 right-6 text-[var(--color-surface)] hover:text-[var(--color-gold)] transition-colors opacity-0 group-hover:opacity-100 z-30 drop-shadow-md'>
               <Plus className='w-8 h-8' />

@@ -53,8 +53,8 @@ export function VideoGrid({ videos }: VideoGridProps) {
                   <Play className="w-8 h-8 ml-1" fill="currentColor" />
                 </div>
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-dark)]/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8 z-20">
-                <DialogTitle className="font-display text-2xl md:text-3xl text-[var(--color-surface)] translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75 ease-out text-left">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6 md:p-8 z-20">
+                <DialogTitle className="font-display text-2xl md:text-3xl text-white translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75 ease-out text-left drop-shadow-sm">
                   {video.title}
                 </DialogTitle>
               </div>

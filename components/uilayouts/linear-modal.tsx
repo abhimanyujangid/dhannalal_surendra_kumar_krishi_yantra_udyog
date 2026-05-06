@@ -248,7 +248,7 @@ function DialogContainer({ children, className, overlayClassName }: DialogContai
             key={`backdrop-${uniqueId}`}
             data-lenis-prevent
             className={cn(
-              'fixed inset-0 h-full z-50 w-full backdrop-blur-xl dark:bg-[radial-gradient(125%_125%_at_50%_10%,#050505_40%,#243aff_100%)] bg-[radial-gradient(125%_125%_at_50%_10%,#ffffff_40%,#243aff_100%)]',
+              'fixed inset-0 h-full z-50 w-full backdrop-blur-xl bg-[radial-gradient(125%_125%_at_50%_10%,var(--color-dark)_40%,var(--color-primary)_100%)]',
               overlayClassName
             )}
             initial={{ opacity: 0 }}
