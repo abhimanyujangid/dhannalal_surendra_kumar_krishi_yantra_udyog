@@ -13,7 +13,7 @@ export function SiteHeader() {
 
   return (
     <header className="site-shell md:pt-3 md:pb-2">
-      <div className="nav-pill mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
+      <div className="nav-pill mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 sm:px-6">
         <Link href="/" className="flex shrink-0 items-center gap-2 text-white no-underline">
           <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[color:var(--color-lime)]/25 text-[color:var(--color-lime)]">
             <Leaf className="h-5 w-5" aria-hidden />
