@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 
 import { SiteFooter } from "@/components/layout/site-footer";
 import { ContactDetails } from "@/features/contact/components/contact-details";
@@ -8,10 +8,10 @@ import { ContactForm } from "@/features/contact/components/contact-form";
 import { CONTACT_PAGE_COPY } from "@/features/contact/data/contact.data";
 import { Navbar } from "@/features/home/components/Navbar";
 import { HOME_DICTIONARY } from "@/features/home/data/hero.data";
-import type { AppLanguage } from "@/features/home/types/home.types";
+import { useLanguage } from "@/features/home/view/language-provider";
 
 export function ContactPageView() {
-  const [language, setLanguage] = useState<AppLanguage>("en");
+  const { language, setLanguage } = useLanguage();
   const dictionary = useMemo(() => HOME_DICTIONARY[language], [language]);
   const copy = useMemo(() => CONTACT_PAGE_COPY[language], [language]);
 

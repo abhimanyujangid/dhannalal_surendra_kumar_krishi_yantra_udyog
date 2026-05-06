@@ -1,20 +1,20 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 
 import { SiteFooter } from "@/components/layout/site-footer";
 import { GalleryTabs } from "@/features/gallery/components/gallery-tabs";
 import { GalleryLanguageProvider } from "@/features/gallery/view/gallery-language-context";
 import { Navbar } from "@/features/home/components/Navbar";
 import { HOME_DICTIONARY } from "@/features/home/data/hero.data";
-import type { AppLanguage } from "@/features/home/types/home.types";
+import { useLanguage } from "@/features/home/view/language-provider";
 
 interface GalleryShellViewProps {
   children: React.ReactNode;
 }
 
 export function GalleryShellView({ children }: GalleryShellViewProps) {
-  const [language, setLanguage] = useState<AppLanguage>("en");
+  const { language, setLanguage } = useLanguage();
   const dictionary = useMemo(() => HOME_DICTIONARY[language], [language]);
 
   return (
